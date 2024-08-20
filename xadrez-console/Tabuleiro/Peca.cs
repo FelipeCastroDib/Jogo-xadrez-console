@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tabuleiro;
 
-using Tabuleiro;
 
-namespace xadrez_console.Tabuleiro
+
+namespace tabuleiro
 {
     internal class Peca
     {
