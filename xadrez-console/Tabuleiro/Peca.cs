@@ -24,10 +24,14 @@ namespace tabuleiro
             this.tab = tab;
         }
 
-        public Peca(Tabuleiro tab, Cor cor)
+        public Peca(Tabuleiro tab, Cor cor) // Depois verificar 
         {
             this.tab = tab;
             this.cor = cor;
+        }
+        public void incrementarQteMovimentos()
+        {
+            qteMovimentos++;
         }
     }
 }
