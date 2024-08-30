@@ -6,7 +6,7 @@ namespace xadrez
     internal class PartidaDeXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private int turno;
+        public int turno { get; private set; }
         private Cor jogadorAtual;
         public bool terminada { get; private set; }
 
@@ -25,6 +25,25 @@ namespace xadrez
             p.incrementarQteMovimentos();
             Peca pecaCapturada = tab.retirarPeca(destino); // Se existir peça no destino, retira ela
             tab.colocarPeca(p, destino); // Inserir a Peça que estava na origem no destino
+        }
+
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
+        }
+
+        private void mudaJogador() 
+        { 
+            if (jogadorAtual == Cor.Branca)
+            {
+                jogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branca;
+            }
         }
 
         private void colocarPecas() // Criar as Peças
