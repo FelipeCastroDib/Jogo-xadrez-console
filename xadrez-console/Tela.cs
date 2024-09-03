@@ -11,14 +11,14 @@ namespace xadrez_console
         {
             for (int i = 0; i < tab.linhas; i++)
             {
-                Console.Write(8 - i + " ");
+                Console.Write(8 - i + " "); // Imprimir numeros do tabuleiro
                 for (int j = 0; j < tab.colunas; j++)
                 {
                     imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("  a b c d e f g h");
+            Console.WriteLine("  a b c d e f g h"); // Imprimir letras do tabuleiro
         }
         public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoePossiveis)
         {
@@ -45,7 +45,7 @@ namespace xadrez_console
             Console.BackgroundColor = fundoOriginal;
         }
 
-        public static PosicaoXadrez lerPosicaoXadrez()
+        public static PosicaoXadrez lerPosicaoXadrez() // Método para ler o teclado, o que o usuário digitar uma letra e um numero
         {
             string s = Console.ReadLine();
             char coluna = s[0];
@@ -53,7 +53,7 @@ namespace xadrez_console
             return new PosicaoXadrez(coluna, linha);
         }
 
-        public static void imprimirPeca(Peca peca)
+        public static void imprimirPeca(Peca peca) // selecionando cores para as peças
         {
             if (peca == null)
             {
@@ -68,10 +68,10 @@ namespace xadrez_console
                 }
                 else
                 {
-                    ConsoleColor aux = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(peca);
-                    Console.ForegroundColor = aux;
+                    ConsoleColor aux = Console.ForegroundColor; // salvar a cor cinza na variavel aux
+                    Console.ForegroundColor = ConsoleColor.Yellow; // Cor da peça do segundo jogador 'Amarelo'
+                    Console.Write(peca); // imprimir a peça
+                    Console.ForegroundColor = aux; // voltar para a cor original
                 }
                 Console.Write(" ");
             }

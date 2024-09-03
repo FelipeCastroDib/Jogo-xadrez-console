@@ -24,7 +24,7 @@ namespace xadrez
             return p == null || p.cor != this.cor;
         }
 
-        public override bool[,] movimentosPossiveis() // Movimentos possiveis da peça Rei
+        public override bool[,] movimentosPossiveis() // Movimentos possiveis da peça Torre
         {
             bool[,] mat = new bool[tab.linhas, tab.colunas];
 
@@ -53,7 +53,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha - 1;
+                pos.linha = pos.linha + 1;
             }
             //direita
 
@@ -65,7 +65,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha - 1;
+                pos.coluna = pos.coluna + 1;
             }
 
             //esquerda
@@ -78,7 +78,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha - 1;
+                pos.coluna = pos.coluna - 1;
             }
             return mat;
         }

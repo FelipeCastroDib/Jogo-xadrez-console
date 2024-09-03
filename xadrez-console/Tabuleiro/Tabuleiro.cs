@@ -23,12 +23,12 @@ namespace tabuleiro
             return pecas[linha, coluna];
         }
 
-        public Peca peca(Posicao pos)
+        public Peca peca(Posicao pos) // Sobrecarga
         {
             return pecas[pos.linha, pos.coluna];
         }
 
-        public bool existePeca(Posicao pos)
+        public bool existePeca(Posicao pos) // Método para testar se existe uma peça em determinada posição
         {
             validarPosicao(pos);
             return peca(pos) != null;
@@ -56,7 +56,7 @@ namespace tabuleiro
             return aux;
         }
 
-        public bool posicaoValida(Posicao pos)
+        public bool posicaoValida(Posicao pos) // Testar se Posição é válida
         {
             if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
             {
@@ -65,7 +65,7 @@ namespace tabuleiro
             return true;
         }
 
-        public void validarPosicao(Posicao pos)
+        public void validarPosicao(Posicao pos) // exceção personalizada
         {
             if (!posicaoValida(pos))
             {
