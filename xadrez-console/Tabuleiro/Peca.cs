@@ -34,6 +34,11 @@ namespace tabuleiro
             qteMovimentos++;
         }
 
+        public void decrementarQteMovimentos()
+        {
+            qteMovimentos--;
+        }
+
         public bool existeMovimentosPossiveis() // verificar se existe algum valor verdadeiro, se nao esta bloqueado
         {
             bool[,] mat = movimentosPossiveis();
