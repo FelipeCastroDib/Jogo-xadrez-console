@@ -1,35 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using tabuleiro;
-
-
-
-namespace tabuleiro
+﻿namespace tabuleiro
 {
-    abstract internal class Peca
+    abstract class Peca
     {
-        public Posicao posicao {  get; set; }
+
+        public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
         public int qteMovimentos { get; protected set; }
         public Tabuleiro tab { get; protected set; }
 
-        public Peca (Cor cor, Tabuleiro tab)
+        public Peca(Tabuleiro tab, Cor cor)
         {
             this.posicao = null;
+            this.tab = tab;
             this.cor = cor;
             this.qteMovimentos = 0;
-            this.tab = tab;
         }
 
-        public Peca(Tabuleiro tab, Cor cor) // Depois verificar 
-        {
-            this.tab = tab;
-            this.cor = cor;
-        }
-        public void incrementarQteMovimentos() 
+        public void incrementarQteMovimentos()
         {
             qteMovimentos++;
         }
@@ -39,7 +26,7 @@ namespace tabuleiro
             qteMovimentos--;
         }
 
-        public bool existeMovimentosPossiveis() // verificar se existe algum valor verdadeiro, se nao esta bloqueado
+        public bool existeMovimentosPossiveis()
         {
             bool[,] mat = movimentosPossiveis();
             for (int i = 0; i < tab.linhas; i++)
@@ -55,12 +42,11 @@ namespace tabuleiro
             return false;
         }
 
-        public bool podeMoverPara(Posicao pos)
+        public bool movimentoPossivel(Posicao pos)
         {
             return movimentosPossiveis()[pos.linha, pos.coluna];
         }
 
-        public abstract bool[,] movimentosPossiveis(); // Verificar para onde a peça pode mover
-        
+        public abstract bool[,] movimentosPossiveis();
     }
 }
